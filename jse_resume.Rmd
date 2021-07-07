@@ -1,0 +1,80 @@
+---
+name: "Jacob"
+surname: "Ellison"
+position: "Data Analyst | Publishing Professional"
+address: "200 Waverly Place, Apt. 21, New York, NY 10014"
+phone: 607 346 5403
+email: "jakesellison@gmail.com"
+github: "jakesellison"
+linkedin: "jacob-ellison-0b7b26105"
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: 414141
+output: vitae::awesomecv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tinytex)
+library(tibble)
+```
+
+# Experience
+
+```{r}
+tribble(
+  ~ Company, ~ Duration, ~ Position, ~ Location, ~ Details,
+    #KAPLAN Strategy
+  "Kaplan North America", "June. 2021 - Present", "Senior Strategic Analyst", "New York, NY", 
+  c("Analyze Kaplan's strategies on Amazon, including advertising, merchandising, inventory
+management, and customer engagement, and identify other opportunities and risks throughout the retail publishing landscape",
+    "Work cross-functionally between Publishing and Data Engineering to provide subject-matter expertise on data ingestion and warehousing",
+"Develop dashboards in R Shiny (with ggplot visualizations) hosted on R Studio Connect. Projects include developing tools to execute on operational necessities as well as macro-level data visualizations to guide strategic initiatives"),
+  #KAPLAN Ops
+  "Kaplan North America", "Mar. 2020 - Present", "Operations Analyst", "New York, NY", 
+  c("Created and continuously improved R scripts to format, present, and analyze large sales and inventory datasets",
+    "Aggregated data sources from many several different businesses and sales channels to provide a comprehensive view of Kaplan's publishing business",
+    "Forecasted sales patterns and inventory requirements to execute reprint decisions"),
+  #ABRAMS
+  "Abrams", "Feb. 2019 - Mar. 2020", "Sales Assistant", "New York, NY",
+  c("Interpreted and manipulated sales data from multiple reporting portals to guide operational sales decisions",
+    "Identified efficient solutions to automate routine deliverables (assembling title metadata, sales numbers, and inventory performance) which were previously assembled manually"),
+  #MEETUP
+  "Meetup", "Sep. 2018 - Dec. 2018", "Community Support Specialist", "New York, NY",
+  c("Composed solution-oriented responses to customers while troubleshooting product challenges with the Meetup website",
+    "Collaborated with other support specialists to develop and document best practices on Confluence"),
+) %>% 
+  detailed_entries(Company, Duration, Position, Location, Details)
+```
+
+# Education
+
+```{r}
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Coursework,
+  "MS, Publishing: Digital and Print Media", "Aug. 2018 - May 2020", "New York University", "New York, NY",
+  c("Statistical Measurements, Analysis, and Research with Jeffrey Baliban: Framed marketing decisions with
+  statistical tools and built a foundation in data ethics, data cleaning, and data analysis"),
+  "BA, Major: Russian and Eurasian Studies // Minor: Computer Science", "Aug. 2011 - May 2015", "Colgate University", "Hamilton, NY", c()
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where, Coursework)
+```
+
+# Languages and Skills
+
+```{r}
+tribble(
+  ~ Item, ~ Level, ~ Desc,
+  "R", 'Expert', c(
+    "Dashboard design in R Shiny to measure KPIs and increase data transparency",
+    "ETL with custom R scripts to ingest data and push updates to a MySQL database",
+    "Reporting automation with R Markdown documents published to R Studio Connect",
+    "Custom email-distributed reports facilitated by the Gmail API and Rstudio Connect"),
+  "SQL", 'Intermediate', c("Queries to obtain data from Amazon Redshift and MySQL databases","Building views to consolidate data and deliver common queries to stakeholders", "Optimization using SQL EXPLAIN to identify coding inefficiencies"),
+  "Tableau", "Intermediate", c("Creating and publishing visualizations", "Utilizing custom joins and calculations")
+) %>% 
+  detailed_entries(
+    with = Item,
+    what = Level,
+    why = Desc
+  )
